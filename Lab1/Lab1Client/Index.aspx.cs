@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 namespace Lab1Client
 {
     public partial class Index : System.Web.UI.Page
-    {
+    { 
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -50,6 +50,16 @@ namespace Lab1Client
             NameDay.NameDay1SoapClient nameDay = new NameDay.NameDay1SoapClient();
             var name = TextBoxName.Text;
             LabelName.Text = nameDay.ReturnDay(name);
+        }
+
+        protected void ButtonWars_Click(object sender, EventArgs e)
+        {
+            Wars.WarsWebServiceSoapClient wars = new Wars.WarsWebServiceSoapClient();
+            var list = wars.ReturnListOfWars();
+            foreach (var war in list)
+            {
+                TextBoxWars.Text += war + "\r\n";
+            }
         }
     }
 }

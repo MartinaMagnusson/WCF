@@ -118,11 +118,25 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Service References\Wars\Lab1Client.Wars.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\Wars\Lab1Client.Wars.ReturnListOfWarsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\Wars\WarsWebService.disco" />
+    <None Include="Service References\Wars\configuration91.svcinfo" />
+    <None Include="Service References\Wars\configuration.svcinfo" />
+    <None Include="Service References\Wars\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service References\Weather\Lab1Client.Weather.WeatherResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\AddTwoNumbers\AddsTwoNumbers.wsdl" />
     <None Include="Service References\SubtractTwoNumbers\SubtractTwoNumbers.wsdl" />
+    <None Include="Service References\Wars\WarsWebService.wsdl" />
     <None Include="Service References\Weather\WeatherWebService.disco" />
     <None Include="Service References\Weather\configuration91.svcinfo" />
     <None Include="Service References\Weather\configuration.svcinfo" />
@@ -165,6 +179,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\Wars\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\Weather\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,6 +202,7 @@
     <WCFMetadataStorage Include="Service References\AddTwoNumbers\" />
     <WCFMetadataStorage Include="Service References\NameDay\" />
     <WCFMetadataStorage Include="Service References\SubtractTwoNumbers\" />
+    <WCFMetadataStorage Include="Service References\Wars\" />
     <WCFMetadataStorage Include="Service References\Weather\" />
   </ItemGroup>
   <PropertyGroup>

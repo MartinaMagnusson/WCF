@@ -68,6 +68,9 @@
   <ItemGroup>
     <Content Include="AddsTwoNumbers.asmx" />
     <Content Include="AddThreeNumbers.asmx" />
+    <Content Include="computerGames.txt" />
+    <Content Include="ComputerGamesWebService.asmx" />
+    <Content Include="Wars.txt" />
     <Content Include="NameDay.asmx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -80,6 +83,7 @@
   <ItemGroup>
     <Content Include="SubtractTwoNumbers.asmx" />
     <Content Include="TextFileNameDay.txt" />
+    <Content Include="WarsWebService.asmx" />
     <Content Include="WeatherWebService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -92,13 +96,20 @@
       <DependentUpon>AddThreeNumbers.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ComputerGamesWebService.asmx.cs">
+      <DependentUpon>ComputerGamesWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NameDay.asmx.cs">
       <DependentUpon>NameDay.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NameDay.cs" />
     <Compile Include="SubtractTwoNumbers.asmx.cs">
       <DependentUpon>SubtractTwoNumbers.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WarsWebService.asmx.cs">
+      <DependentUpon>WarsWebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WeatherWebService.asmx.cs">

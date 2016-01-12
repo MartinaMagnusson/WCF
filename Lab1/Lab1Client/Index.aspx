@@ -26,12 +26,12 @@
             <asp:TextBox ID="TextBoxAddNumberOne" runat="server"></asp:TextBox>
             +
             <asp:TextBox ID="TextBoxAddNumberTwo" runat="server"></asp:TextBox>
-             +
+            +
             <asp:TextBox ID="TextBoxAddNumberThree" runat="server"></asp:TextBox>
             <asp:Button ID="ButtonAddThreeNumbers" runat="server" Text=" = " OnClick="ButtonAddThreeNumbers_Click" />
             <asp:Label ID="LabelAddThreeNumbers" runat="server" Text=""></asp:Label>
 
-             <hr />
+            <hr />
 
             <asp:TextBox ID="TextBoxSubtracNumberOne" runat="server"></asp:TextBox>
             -
@@ -44,7 +44,12 @@
             <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
             <asp:Button ID="Button1Name" runat="server" Text=" Namnsdag " OnClick="ButtonNameDay_Click" />
             <asp:Label ID="LabelName" runat="server" Text=""></asp:Label>
+
+            <hr />
+            <asp:textbox  ID="TextBoxWars" runat="server" Rows="8" TextMode="MultiLine"></asp:textbox>
+            <asp:Button ID="ButtonWars" runat="server" Text="Se hur länge krigen vara" OnClick="ButtonWars_Click" />
         </div>
     </form>
 </body>
 </html>
+

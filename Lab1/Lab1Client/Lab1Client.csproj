@@ -97,9 +97,23 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\ComputerGames\ComputerGamesWebService.disco" />
+    <None Include="Service References\ComputerGames\configuration91.svcinfo" />
+    <None Include="Service References\ComputerGames\configuration.svcinfo" />
+    <Content Include="Service References\ComputerGames\Lab1Client.ComputerGames.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ComputerGames\Lab1Client.ComputerGames.ReturnListOfGameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ComputerGames\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service References\NameDay\Lab1Client.NameDay.ReturnDayResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\ComputerGames\ComputerGamesWebService.wsdl" />
     <None Include="Service References\NameDay\NameDay.disco" />
     <None Include="Service References\NameDay\configuration91.svcinfo" />
     <None Include="Service References\NameDay\configuration.svcinfo" />
@@ -169,6 +183,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ComputerGames\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\NameDay\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -200,6 +219,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AddThreeNumbers\" />
     <WCFMetadataStorage Include="Service References\AddTwoNumbers\" />
+    <WCFMetadataStorage Include="Service References\ComputerGames\" />
     <WCFMetadataStorage Include="Service References\NameDay\" />
     <WCFMetadataStorage Include="Service References\SubtractTwoNumbers\" />
     <WCFMetadataStorage Include="Service References\Wars\" />

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ReturnListOfGame">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReturnListOfGameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnListOfGameResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ReturnListOfGameSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnListOfGame" />
+  </wsdl:message>
+  <wsdl:message name="ReturnListOfGameSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnListOfGameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ComputerGamesWebServiceSoap">
+    <wsdl:operation name="ReturnListOfGame">
+      <wsdl:input message="tns:ReturnListOfGameSoapIn" />
+      <wsdl:output message="tns:ReturnListOfGameSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ComputerGamesWebServiceSoap" type="tns:ComputerGamesWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReturnListOfGame">
+      <soap:operation soapAction="http://tempuri.org/ReturnListOfGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ComputerGamesWebServiceSoap12" type="tns:ComputerGamesWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReturnListOfGame">
+      <soap12:operation soapAction="http://tempuri.org/ReturnListOfGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ComputerGamesWebService">
+    <wsdl:port name="ComputerGamesWebServiceSoap" binding="tns:ComputerGamesWebServiceSoap">
+      <soap:address location="http://localhost:28199/ComputerGamesWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ComputerGamesWebServiceSoap12" binding="tns:ComputerGamesWebServiceSoap12">
+      <soap12:address location="http://localhost:28199/ComputerGamesWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

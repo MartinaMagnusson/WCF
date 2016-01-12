@@ -46,8 +46,10 @@
             <asp:Label ID="LabelName" runat="server" Text=""></asp:Label>
 
             <hr />
-            <asp:textbox  ID="TextBoxWars" runat="server" Rows="8" TextMode="MultiLine"></asp:textbox>
-            <asp:Button ID="ButtonWars" runat="server" Text="Se hur länge krigen vara" OnClick="ButtonWars_Click" />
+            <asp:TextBox ID="TextBoxWars" runat="server" Rows="8" TextMode="MultiLine"></asp:TextBox>
+            <asp:Button ID="ButtonWars" runat="server" Text="Se hur länge krigen vara" OnClick="ButtonWars_Click" /><br />
+
+            <asp:TextBox ID="TextBoxGames" runat="server" Rows="8" TextMode="MultiLine"></asp:TextBox>
         </div>
     </form>
 </body>

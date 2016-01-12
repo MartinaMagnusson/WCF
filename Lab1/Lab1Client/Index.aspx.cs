@@ -11,7 +11,12 @@ namespace Lab1Client
     { 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ComputerGames.ComputerGamesWebServiceSoapClient games = new ComputerGames.ComputerGamesWebServiceSoapClient();
+            var listOfGame = games.ReturnListOfGame();
+            foreach (var game in listOfGame)
+            {
+                TextBoxGames.Text += game + "\r\n";
+            }
         }
 
         protected void ButtonWeather_Click(object sender, EventArgs e)

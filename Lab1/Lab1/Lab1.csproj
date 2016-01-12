@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="AddsTwoNumbers.asmx" />
     <Content Include="AddThreeNumbers.asmx" />
+    <Content Include="NameDay.asmx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -78,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SubtractTwoNumbers.asmx" />
+    <Content Include="TextFileNameDay.txt" />
     <Content Include="WeatherWebService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -90,6 +92,11 @@
       <DependentUpon>AddThreeNumbers.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="NameDay.asmx.cs">
+      <DependentUpon>NameDay.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NameDay.cs" />
     <Compile Include="SubtractTwoNumbers.asmx.cs">
       <DependentUpon>SubtractTwoNumbers.asmx</DependentUpon>
       <SubType>Component</SubType>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ReturnDay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inputName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnDayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDayResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ReturnDaySoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnDay" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDaySoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnDayResponse" />
+  </wsdl:message>
+  <wsdl:portType name="NameDay1Soap">
+    <wsdl:operation name="ReturnDay">
+      <wsdl:input message="tns:ReturnDaySoapIn" />
+      <wsdl:output message="tns:ReturnDaySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NameDay1Soap" type="tns:NameDay1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReturnDay">
+      <soap:operation soapAction="http://tempuri.org/ReturnDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NameDay1Soap12" type="tns:NameDay1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReturnDay">
+      <soap12:operation soapAction="http://tempuri.org/ReturnDay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NameDay1">
+    <wsdl:port name="NameDay1Soap" binding="tns:NameDay1Soap">
+      <soap:address location="http://localhost:28199/NameDay.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NameDay1Soap12" binding="tns:NameDay1Soap12">
+      <soap12:address location="http://localhost:28199/NameDay.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

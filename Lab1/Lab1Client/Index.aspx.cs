@@ -44,5 +44,12 @@ namespace Lab1Client
             var numberTwo = int.Parse(TextBoxSubtracNumberTwo.Text);
             LabelSubtracNumbers.Text = subtract.Subtract(numberOne, numberTwo);
         }
+
+        protected void ButtonNameDay_Click(object sender, EventArgs e)
+        {
+            NameDay.NameDay1SoapClient nameDay = new NameDay.NameDay1SoapClient();
+            var name = TextBoxName.Text;
+            LabelName.Text = nameDay.ReturnDay(name);
+        }
     }
 }

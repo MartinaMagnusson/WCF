@@ -97,9 +97,20 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Service References\NameDay\Lab1Client.NameDay.ReturnDayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NameDay\NameDay.disco" />
+    <None Include="Service References\NameDay\configuration91.svcinfo" />
+    <None Include="Service References\NameDay\configuration.svcinfo" />
+    <None Include="Service References\NameDay\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service References\SubtractTwoNumbers\Lab1Client.SubtractTwoNumbers.SubtractResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\NameDay\NameDay.wsdl" />
     <None Include="Service References\SubtractTwoNumbers\SubtractTwoNumbers.disco" />
     <None Include="Service References\SubtractTwoNumbers\configuration91.svcinfo" />
     <None Include="Service References\SubtractTwoNumbers\configuration.svcinfo" />
@@ -144,6 +155,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\NameDay\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\SubtractTwoNumbers\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -165,6 +181,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AddThreeNumbers\" />
     <WCFMetadataStorage Include="Service References\AddTwoNumbers\" />
+    <WCFMetadataStorage Include="Service References\NameDay\" />
     <WCFMetadataStorage Include="Service References\SubtractTwoNumbers\" />
     <WCFMetadataStorage Include="Service References\Weather\" />
   </ItemGroup>

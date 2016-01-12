@@ -38,6 +38,12 @@
             <asp:TextBox ID="TextBoxSubtracNumberTwo" runat="server"></asp:TextBox>
             <asp:Button ID="ButtonSubtracNumbers" runat="server" Text=" = " OnClick="ButtonSubtracTwoNumbers_Click" />
             <asp:Label ID="LabelSubtracNumbers" runat="server" Text=""></asp:Label>
+
+            <hr />
+
+            <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+            <asp:Button ID="Button1Name" runat="server" Text=" Namnsdag " OnClick="ButtonNameDay_Click" />
+            <asp:Label ID="LabelName" runat="server" Text=""></asp:Label>
         </div>
     </form>
 </body>

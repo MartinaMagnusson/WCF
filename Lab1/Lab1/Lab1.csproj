@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddsTwoNumbers.asmx" />
+    <Content Include="AddThreeNumbers.asmx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -82,6 +83,10 @@
   <ItemGroup>
     <Compile Include="AddsTwoNumbers.asmx.cs">
       <DependentUpon>AddsTwoNumbers.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AddThreeNumbers.asmx.cs">
+      <DependentUpon>AddThreeNumbers.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WeatherWebService.asmx.cs">

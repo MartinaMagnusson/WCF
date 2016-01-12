@@ -16,7 +16,16 @@ namespace Lab1Client
 
         protected void ButtonWeather_Click(object sender, EventArgs e)
         {
+            Weather.Lab1WebServiceSoapClient weather = new Weather.Lab1WebServiceSoapClient();
+            LabelWeather.Text = weather.Weather();
+        }
 
+        protected void ButtonAddTwoNumbers_Click(object sender, EventArgs e)
+        {
+            AddTwoNumbers.AddsTwoNumbersSoapClient add = new AddTwoNumbers.AddsTwoNumbersSoapClient();
+            var numberOne = int.Parse(TextBoxNumberOne.Text);
+            var numberTwo = int.Parse(TextBoxNumberTwo.Text);
+            LabelAddTwoNumbers.Text = add.AddNumbers(numberOne, numberTwo).ToString();
         }
     }
 }

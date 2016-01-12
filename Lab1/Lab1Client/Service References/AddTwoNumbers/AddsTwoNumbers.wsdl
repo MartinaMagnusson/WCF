@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AddNumbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="numberOne" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numberTwo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddNumbersResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddNumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNumbers" />
+  </wsdl:message>
+  <wsdl:message name="AddNumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNumbersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AddsTwoNumbersSoap">
+    <wsdl:operation name="AddNumbers">
+      <wsdl:input message="tns:AddNumbersSoapIn" />
+      <wsdl:output message="tns:AddNumbersSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AddsTwoNumbersSoap" type="tns:AddsTwoNumbersSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddNumbers">
+      <soap:operation soapAction="http://tempuri.org/AddNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AddsTwoNumbersSoap12" type="tns:AddsTwoNumbersSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddNumbers">
+      <soap12:operation soapAction="http://tempuri.org/AddNumbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AddsTwoNumbers">
+    <wsdl:port name="AddsTwoNumbersSoap" binding="tns:AddsTwoNumbersSoap">
+      <soap:address location="http://localhost:28199/AddsTwoNumbers.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AddsTwoNumbersSoap12" binding="tns:AddsTwoNumbersSoap12">
+      <soap12:address location="http://localhost:28199/AddsTwoNumbers.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -8,11 +8,19 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Button ID="ButtonWeather" runat="server" Text="Se morgondagens väder" OnClick="ButtonWeather_Click" />
-        <asp:Label ID="LabelWeather" runat="server" Text=""></asp:Label>
-    <div>
-    
-    </div>
+        <div>
+            <asp:Button ID="ButtonWeather" runat="server" Text="Se morgondagens väder" OnClick="ButtonWeather_Click" />
+            <asp:Label ID="LabelWeather" runat="server" Text=""></asp:Label>
+        </div>
+        <div>
+
+            <asp:TextBox ID="TextBoxNumberOne" runat="server"></asp:TextBox>
+            +
+            <asp:TextBox ID="TextBoxNumberTwo" runat="server"></asp:TextBox>
+            <asp:Button ID="ButtonAddTwoNumbers" runat="server" Text=" = " OnClick="ButtonAddTwoNumbers_Click" />
+            <asp:Label ID="LabelAddTwoNumbers" runat="server" Text=""></asp:Label>
+
+        </div>
     </form>
 </body>
 </html>

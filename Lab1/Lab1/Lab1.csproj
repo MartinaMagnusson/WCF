@@ -104,6 +104,7 @@
       <DependentUpon>NameDay.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="NameDay.cs" />
     <Compile Include="SubtractTwoNumbers.asmx.cs">
       <DependentUpon>SubtractTwoNumbers.asmx</DependentUpon>
       <SubType>Component</SubType>

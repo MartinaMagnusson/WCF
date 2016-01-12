@@ -17,13 +17,18 @@ namespace Lab1
     // [System.Web.Script.Services.ScriptService]
     public class NameDay1 : System.Web.Services.WebService
     {
+        public List<NameDay> nameDay;
+        public NameDay1()
+        {
+            nameDay = new List<NameDay>();
+            AddToList();
+        }
         private string ReadFromFile()
         {
             try
-            {   // Open the text file using a stream reader.
+            {  
                 using (StreamReader sr = new StreamReader("C:/Users/Martina/Documents/Skola/WCF/WCF/Lab1/Lab1/TextFileNameDay.txt"))
                 {
-                    // Read the stream to a string, and write the string to the console.
                     var line = sr.ReadToEnd();
                     return line;
                 }
@@ -33,16 +38,29 @@ namespace Lab1
                 return "The file could not be read:" + e.Message;
             }
         }
+        public void AddToList()
+        {
+            var array = ReadFromFile().Split('.');
+            for (var i = 0; i < array.Length; i++)
+            {
+                var name = array[i].Split(',');
+                if (i % 2 != 0)
+                    nameDay.Add(new NameDay(array[(i - 1)], name.ToList()));
+            }
+        }
+
 
         [WebMethod]
         public string ReturnDay(string inputName)
         {
-            var array = ReadFromFile().Split('.');
-            var day = "";
-            for (int i = 0; i < array.Length; i++)
+            var day = inputName + " har tyvärr ingen namnsdag";
+            foreach (var item in nameDay)
             {
-                if (array[i].ToLower().Contains(inputName.ToLower()))
-                    day = inputName + " har namnsdag den " + array[(i - 1)];
+                foreach (var name in item.Names)
+                {
+                    if (name.Replace(" ", "").ToLower() == inputName.Replace(" ", "").ToLower())
+                        day = item.Date;
+                }
             }
             return day;
         }

@@ -20,7 +20,28 @@ namespace Lab1
         [WebMethod]
         public string HelloWorld()
         {
-            return "Hello World";
+            var random = new Random();
+            var randomNumber = random.Next(1, 5);
+            string väder; 
+            switch (randomNumber)
+            {
+                case 1:
+                    väder = "molnigt";
+                    break;
+                case 2:
+                    väder = "sol";
+                    break;
+                case 3:
+                    väder = "snö";
+                    break;
+                case 4:
+                    väder = "regn";
+                    break;
+                default:
+                    väder = "åska";
+                    break;
+            }
+            return "Imorgon bli det " + väder;
         }
     }
 }

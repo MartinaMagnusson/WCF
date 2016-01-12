@@ -36,5 +36,13 @@ namespace Lab1Client
             var numberThree = int.Parse(TextBoxAddNumberThree.Text);
             LabelAddThreeNumbers.Text = add.AddNumbers(numberOne, numberTwo, numberThree);
         }
+
+        protected void ButtonSubtracTwoNumbers_Click(object sender, EventArgs e)
+        {
+            SubtractTwoNumbers.SubtractTwoNumbersSoapClient subtract = new SubtractTwoNumbers.SubtractTwoNumbersSoapClient();
+            var numberOne = int.Parse(TextBoxSubtracNumberOne.Text);
+            var numberTwo = int.Parse(TextBoxSubtracNumberTwo.Text);
+            LabelSubtracNumbers.Text = subtract.Subtract(numberOne, numberTwo);
+        }
     }
 }

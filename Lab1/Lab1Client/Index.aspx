@@ -30,6 +30,14 @@
             <asp:TextBox ID="TextBoxAddNumberThree" runat="server"></asp:TextBox>
             <asp:Button ID="ButtonAddThreeNumbers" runat="server" Text=" = " OnClick="ButtonAddThreeNumbers_Click" />
             <asp:Label ID="LabelAddThreeNumbers" runat="server" Text=""></asp:Label>
+
+             <hr />
+
+            <asp:TextBox ID="TextBoxSubtracNumberOne" runat="server"></asp:TextBox>
+            -
+            <asp:TextBox ID="TextBoxSubtracNumberTwo" runat="server"></asp:TextBox>
+            <asp:Button ID="ButtonSubtracNumbers" runat="server" Text=" = " OnClick="ButtonSubtracTwoNumbers_Click" />
+            <asp:Label ID="LabelSubtracNumbers" runat="server" Text=""></asp:Label>
         </div>
     </form>
 </body>

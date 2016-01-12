@@ -27,5 +27,14 @@ namespace Lab1Client
             var numberTwo = int.Parse(TextBoxNumberTwo.Text);
             LabelAddTwoNumbers.Text = add.AddNumbers(numberOne, numberTwo).ToString();
         }
+
+        protected void ButtonAddThreeNumbers_Click(object sender, EventArgs e)
+        {
+            AddThreeNumbers.AddThreeNumbersSoapClient add = new AddThreeNumbers.AddThreeNumbersSoapClient();
+            var numberOne = int.Parse(TextBoxAddNumberOne.Text);
+            var numberTwo = int.Parse(TextBoxAddNumberTwo.Text);
+            var numberThree = int.Parse(TextBoxAddNumberThree.Text);
+            LabelAddThreeNumbers.Text = add.AddNumbers(numberOne, numberTwo, numberThree);
+        }
     }
 }

@@ -79,10 +79,21 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Index.aspx" />
+    <None Include="Service References\AddThreeNumbers\AddThreeNumbers.wsdl" />
+    <Content Include="Service References\AddThreeNumbers\Lab1Client.AddThreeNumbers.AddNumbersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\AddTwoNumbers\AddsTwoNumbers.disco" />
     <None Include="Service References\AddTwoNumbers\configuration91.svcinfo" />
     <None Include="Service References\AddTwoNumbers\configuration.svcinfo" />
     <None Include="Service References\AddTwoNumbers\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AddThreeNumbers\AddThreeNumbers.disco" />
+    <None Include="Service References\AddThreeNumbers\configuration91.svcinfo" />
+    <None Include="Service References\AddThreeNumbers\configuration.svcinfo" />
+    <None Include="Service References\AddThreeNumbers\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -112,6 +123,11 @@
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\AddThreeNumbers\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\AddTwoNumbers\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,6 +147,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AddThreeNumbers\" />
     <WCFMetadataStorage Include="Service References\AddTwoNumbers\" />
     <WCFMetadataStorage Include="Service References\Weather\" />
   </ItemGroup>

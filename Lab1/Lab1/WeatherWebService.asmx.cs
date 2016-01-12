@@ -18,30 +18,30 @@ namespace Lab1
     {
 
         [WebMethod]
-        public string HelloWorld()
+        public string Weather()
         {
             var random = new Random();
             var randomNumber = random.Next(1, 5);
-            string väder; 
+            string weather; 
             switch (randomNumber)
             {
                 case 1:
-                    väder = "molnigt";
+                    weather = "molnigt";
                     break;
                 case 2:
-                    väder = "sol";
+                    weather = "sol";
                     break;
                 case 3:
-                    väder = "snö";
+                    weather = "snö";
                     break;
                 case 4:
-                    väder = "regn";
+                    weather = "regn";
                     break;
                 default:
-                    väder = "åska";
+                    weather = "åska";
                     break;
             }
-            return "Imorgon bli det " + väder;
+            return "Imorgon bli det " + weather;
         }
     }
 }

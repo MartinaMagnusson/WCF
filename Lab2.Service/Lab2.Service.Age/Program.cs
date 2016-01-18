@@ -9,17 +9,17 @@ using System.ServiceModel.Description;
 namespace Lab2.Service.Age
 {
     [ServiceContract(Namespace = "http://Lab2.Service.Age")]
-    public interface IAge
+    public interface IDays
     {
         [OperationContract]
         string GetAge(DateTime birthday);
     }
-    public class Age : IAge
+    public class Days : IDays
     {
         public string GetAge(DateTime birthday)
         {
-            var age = (DateTime.Now - birthday);
-            return string.Format("Du är {0} år", age);
+            var days = (DateTime.Now - birthday);
+            return string.Format("Du är {0} dagar gammal", days.Days);
         }
     }
     class Program
@@ -27,12 +27,12 @@ namespace Lab2.Service.Age
         static void Main(string[] args)
         {
             Uri address = new Uri("http://localhost:8080/Lab2.Service.Age");
-            ServiceHost serviceHost = new ServiceHost(typeof(Age), address);
+            ServiceHost serviceHost = new ServiceHost(typeof(Days), address);
             try
             {
-                serviceHost.AddServiceEndpoint(typeof(IAge),
+                serviceHost.AddServiceEndpoint(typeof(IDays),
                     new WSHttpBinding(),
-                    "Age");
+                    "Days");
                 ServiceMetadataBehavior smBehavior = new ServiceMetadataBehavior();
                 smBehavior.HttpGetEnabled = true;
                 serviceHost.Description.Behaviors.Add(smBehavior);

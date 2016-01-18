@@ -12,11 +12,11 @@ namespace Lab2.Service.BMI
     public interface IBMI
     {
         [OperationContract]
-        string CalculateBMI(int weight, int length);
+        string CalculateBMI(int weight, double length);
     }
     public class BMI : IBMI
     {
-        public string CalculateBMI(int weight, int length)
+        public string CalculateBMI(int weight, double length)
         {
             var bmi = weight / (length * length);
             return string.Format("Ditt BMI är {0}", bmi);

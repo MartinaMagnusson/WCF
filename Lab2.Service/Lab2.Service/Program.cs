@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 
-namespace Lab2.Service
+namespace Lab2.Service.BMI
 {
-    [ServiceContract(Namespace = "http://Lab2.Service")]
+    [ServiceContract(Namespace = "http://Lab2.Service.BMI")]
     public interface IBMI
     {
         [OperationContract]
@@ -26,7 +26,7 @@ namespace Lab2.Service
     {
         static void Main(string[] args)
         {
-            Uri address = new Uri("http://localhost:8080/Lab2.Service");
+            Uri address = new Uri("http://localhost:8080/Lab2.Service.BMI");
             ServiceHost serviceHost = new ServiceHost(typeof(BMI), address);
             try
             {

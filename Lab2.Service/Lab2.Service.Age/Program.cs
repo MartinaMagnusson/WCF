@@ -6,33 +6,33 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 
-namespace Lab2.Service.BMI
+namespace Lab2.Service.Age
 {
-    [ServiceContract(Namespace = "http://Lab2.Service.BMI")]
-    public interface IBMI
+    [ServiceContract(Namespace = "http://Lab2.Service.Age")]
+    public interface IAge
     {
         [OperationContract]
-        string CalculateBMI(int weight, double length);
+        string GetAge(DateTime birthday);
     }
-    public class BMI : IBMI
+    public class Age : IAge
     {
-        public string CalculateBMI(int weight, double length)
+        public string GetAge(DateTime birthday)
         {
-            var bmi = weight / (length * length);
-            return string.Format("Ditt BMI är {0}", bmi);
+            var age = (DateTime.Now - birthday);
+            return string.Format("Du är {0} år", age);
         }
     }
     class Program
     {
         static void Main(string[] args)
         {
-            Uri address = new Uri("http://localhost:8080/Lab2.Service.BMI");
-            ServiceHost serviceHost = new ServiceHost(typeof(BMI), address);
+            Uri address = new Uri("http://localhost:8080/Lab2.Service.Age");
+            ServiceHost serviceHost = new ServiceHost(typeof(Age), address);
             try
             {
-                serviceHost.AddServiceEndpoint(typeof(IBMI),
+                serviceHost.AddServiceEndpoint(typeof(IAge),
                     new WSHttpBinding(),
-                    "BMI");
+                    "Age");
                 ServiceMetadataBehavior smBehavior = new ServiceMetadataBehavior();
                 smBehavior.HttpGetEnabled = true;
                 serviceHost.Description.Behaviors.Add(smBehavior);
@@ -41,7 +41,6 @@ namespace Lab2.Service.BMI
                 Console.WriteLine("Tjänsten är öppen!");
                 Console.WriteLine("Tryck enter för att avsluta");
                 Console.ReadLine();
-
             }
             catch (CommunicationException ex)
             {

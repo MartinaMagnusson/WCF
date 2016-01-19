@@ -17,7 +17,7 @@ namespace Lab.Hobby
     {
         public string Shoes(string gender, string shoes, int size)
         {
-            if ((gender == "Kvinna" && size > 35 && size < 41) || (gender == "Man" && size > 37 && size < 45))
+            if ((gender == "Kvinna" && size >= 35 && size <= 41) || (gender == "Man" && size >= 37 && size <= 45))
                 return string.Format("{0} finns i storlek {1}!", shoes, size);
             else
                 return string.Format("{0} finns tyvärr inte i storlek {1}!", shoes, size);
@@ -56,3 +56,4 @@ namespace Lab.Hobby
             }
         }
     }
+}

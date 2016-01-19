@@ -16,7 +16,7 @@ namespace Lab2.Client.Hobby
             Console.WriteLine("Skriv in vilken storlek: ");
             var size = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Skriv in om det ska vara dam eller härrmodell (Kvinna/Man): ");
+            Console.WriteLine("Skriv in om det ska vara dam eller herrmodell (Kvinna/Man): ");
             var gender = Console.ReadLine();
 
             HobbyClient hobby = new HobbyClient();

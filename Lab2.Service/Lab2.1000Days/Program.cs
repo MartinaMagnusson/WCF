@@ -18,8 +18,11 @@ namespace Lab2._1000Days
     {
         public string CalculateNext1000Days(DateTime birthday)
         {
-            var days = (DateTime.Now - birthday);
-            return "";
+            var ageInDays = (DateTime.Now - birthday).TotalDays;
+            var days = (ageInDays % 1000);
+            var next1000 = (1000 - days);
+            var date = DateTime.Now.AddDays(next1000);
+            return string.Format("Nästa gång du fyller jämt antal tusen dagar är: {0:dd MMMM yyyy}", date);
         }
     }
     class Program

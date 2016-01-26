@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <p>Enter shipper ID</p>
-    <asp:TextBox ID="TextBoxID" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBoxID" runat="server" TextMode="Number"></asp:TextBox>
     <br />
     <asp:Button ID="ButtonGet" runat="server" Text="Get Shipper" OnClick="ButtonGet_Click" />
     <p>Edit shipper data</p>

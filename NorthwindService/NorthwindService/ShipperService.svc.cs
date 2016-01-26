@@ -19,16 +19,16 @@ namespace NorthwindService
                                    FROM[NORTHWND].[dbo].[Shippers] 
                                    WHERE[ShipperID] = @ID";
 
-            Shipper shipper = new Shipper();
+            var shipper = new Shipper();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                command.Parameters.AddWithValue("@ID", ID);
+                var command = new SqlCommand(queryString, connection);
+                command.Parameters.AddWithValue("@ID", shipper.ID);
 
                 try
                 {
                     connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         shipper.ID = reader[0].ToString();
@@ -48,42 +48,25 @@ namespace NorthwindService
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlDataAdapter dataAdpater = new SqlDataAdapter(@"SELECT [ShipperID],[CompanyName],[Phone] 
-                                                                    FROM[NORTHWND].[dbo].[Shippers] 
-                                                                    WHERE[ShipperID] =" + shipper.ID, connection);
-
-                dataAdpater.UpdateCommand = new SqlCommand(@"UPDATE [dbo].[Shippers]
-                                                            SET [CompanyName] = " + shipper.CompanyName +
-                                                           ",[Phone] = " + shipper.Phone +
-                                                            "WHERE [ShipperID] = " + shipper.ID, connection);
-
-                //dataAdpater.UpdateCommand.Parameters.Add("@ID", SqlDbType.Int, 15, shipper.ID);
-                //dataAdpater.UpdateCommand.Parameters.Add("@CompanyName", SqlDbType.NVarChar, 15, shipper.CompanyName);
-                //dataAdpater.UpdateCommand.Parameters.Add("@Phone", SqlDbType.NVarChar, 15, shipper.Phone);
-
-                SqlParameter parameter = dataAdpater.UpdateCommand.Parameters.Add("@ShipperID", SqlDbType.Int);
-                parameter.SourceColumn = "ShipperID";
-                parameter.SourceVersion = DataRowVersion.Original;
-
-                DataTable shipperTable = new DataTable();
-                dataAdpater.Fill(shipperTable);
-
-                DataRow shipperID = shipperTable.Rows[0];
-                //DataRow shipperCompanyName = shipperTable.Rows[0];
-                //DataRow shipperPhone = shipperTable.Rows[2];
-                shipperID["ShipperID"] = shipper.ID;
-                //shipperCompanyName["CompanyName"] = "CompanyName";
-                //shipperPhone["Phone"] = "Phone";
-
-               dataAdpater.Update(shipperTable);
-
-                Console.WriteLine("Rows after update.");
-                foreach (DataRow row in shipperTable.Rows)
+                var command = connection.CreateCommand();
+                try
                 {
-                    {
-                        Console.WriteLine("{0}: {1}", row[0], row[1]);
-                    }
+                    command.Parameters.AddWithValue("@CompanyName", shipper.CompanyName);
+                    command.Parameters.AddWithValue("@Phone", shipper.Phone);
+                    command.Parameters.AddWithValue("@ID", shipper.ID);
+
+                    command.CommandText = @"UPDATE [dbo].[Shippers]
+                                        SET [CompanyName] = @CompanyName ,
+                                        [Phone] = @Phone
+                                        WHERE [ShipperID] = @ID";
+                    connection.Open();
+                    command.ExecuteNonQuery();
                 }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+                }         
             }
         }
     }

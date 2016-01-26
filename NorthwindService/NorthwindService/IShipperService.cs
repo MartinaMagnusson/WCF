@@ -14,7 +14,7 @@ namespace NorthwindService
         [OperationContract]
         Shipper GetShipper(string ID);
         [OperationContract]
-        void SaveShipper(string ID, string CompanyName, string Phone);
+        void SaveShipper(Shipper shipper);
     }
     [DataContract]
     public class Shipper

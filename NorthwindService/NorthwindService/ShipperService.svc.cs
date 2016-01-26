@@ -11,20 +11,19 @@ namespace NorthwindService
 {
     public class ShipperService : IShipperService
     {
-        string connectionString =
-             "Data Source=Martina;Initial Catalog=NORTHWND;Integrated Security=True";
+        string connectionString = "Data Source=Martina;Initial Catalog=NORTHWND;Integrated Security=True";
+
         public Shipper GetShipper(string ID)
         {
             string queryString = @"SELECT [ShipperID],[CompanyName],[Phone] 
                                    FROM[NORTHWND].[dbo].[Shippers] 
-                                   WHERE[ShipperID] =" + ID;
+                                   WHERE[ShipperID] = @ID";
 
-            int paramValue = 5;
             Shipper shipper = new Shipper();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
-                command.Parameters.AddWithValue("@pricePoint", paramValue);
+                command.Parameters.AddWithValue("@ID", ID);
 
                 try
                 {
@@ -45,43 +44,46 @@ namespace NorthwindService
                 return shipper;
             }
         }
-        public void SaveShipper(string ID, string companyName, string phone)
+        public void SaveShipper(Shipper shipper)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlDataAdapter dataAdpater = new SqlDataAdapter(@"SELECT [ShipperID],[CompanyName],[Phone] 
                                                                     FROM[NORTHWND].[dbo].[Shippers] 
-                                                                    WHERE[ShipperID] =" + ID, connection);
+                                                                    WHERE[ShipperID] =" + shipper.ID, connection);
 
                 dataAdpater.UpdateCommand = new SqlCommand(@"UPDATE [dbo].[Shippers]
-                                                            SET [CompanyName] = @CompanyName
-                                                           ,[Phone] = @Phone
-                                                            [ShipperID] = @ID");
+                                                            SET [CompanyName] = " + shipper.CompanyName +
+                                                           ",[Phone] = " + shipper.Phone +
+                                                            "WHERE [ShipperID] = " + shipper.ID, connection);
 
-                dataAdpater.UpdateCommand.Parameters.Add("@ID", SqlDbType.Int, 15, ID);
-                dataAdpater.UpdateCommand.Parameters.Add("@CompanyName", SqlDbType.NVarChar, 15, companyName);
-                dataAdpater.UpdateCommand.Parameters.Add("@Phone", SqlDbType.NVarChar, 15, phone);
+                //dataAdpater.UpdateCommand.Parameters.Add("@ID", SqlDbType.Int, 15, shipper.ID);
+                //dataAdpater.UpdateCommand.Parameters.Add("@CompanyName", SqlDbType.NVarChar, 15, shipper.CompanyName);
+                //dataAdpater.UpdateCommand.Parameters.Add("@Phone", SqlDbType.NVarChar, 15, shipper.Phone);
 
-                //SqlParameter parameter = dataAdpater.UpdateCommand.Parameters.Add(
-                //  "@ID", SqlDbType.Int);
-                //parameter.SourceColumn = "ShipperID";
-                //parameter.SourceVersion = DataRowVersion.Original;
+                SqlParameter parameter = dataAdpater.UpdateCommand.Parameters.Add("@ShipperID", SqlDbType.Int);
+                parameter.SourceColumn = "ShipperID";
+                parameter.SourceVersion = DataRowVersion.Original;
 
-                DataTable categoryTable = new DataTable();
-                dataAdpater.Fill(categoryTable);
+                DataTable shipperTable = new DataTable();
+                dataAdpater.Fill(shipperTable);
 
-                //DataRow categoryRow = categoryTable.Rows[0];
-                //categoryRow["ShipperID"] = "New Beverages";
+                DataRow shipperID = shipperTable.Rows[0];
+                //DataRow shipperCompanyName = shipperTable.Rows[0];
+                //DataRow shipperPhone = shipperTable.Rows[2];
+                shipperID["ShipperID"] = shipper.ID;
+                //shipperCompanyName["CompanyName"] = "CompanyName";
+                //shipperPhone["Phone"] = "Phone";
 
-                dataAdpater.Update(categoryTable);
+               dataAdpater.Update(shipperTable);
 
-                //Console.WriteLine("Rows after update.");
-                //foreach (DataRow row in categoryTable.Rows)
-                //{
-                //    {
-                //        Console.WriteLine("{0}: {1}", row[0], row[1]);
-                //    }
-                //}
+                Console.WriteLine("Rows after update.");
+                foreach (DataRow row in shipperTable.Rows)
+                {
+                    {
+                        Console.WriteLine("{0}: {1}", row[0], row[1]);
+                    }
+                }
             }
         }
     }

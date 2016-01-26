@@ -20,7 +20,7 @@ namespace ShipperClient
         {
             var service = new ShipperServiceClient();
             var id = int.Parse(TextBoxID.Text);
-            if (id <= 1 || id >= 3)
+            if (id >= 1 || id <= 3)
             {
                 var shipper = service.GetShipper(id.ToString());
                 TextBoxShipperID.Text = shipper.ID;

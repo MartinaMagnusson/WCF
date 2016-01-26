@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4871db8e-7705-4018-86b7-f9928346a050" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="87490dae-d12b-4c49-8baa-b1720dafc2c7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,12 +22,12 @@
     <MetadataSource Address="http://localhost:55297/ShipperService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ShipperService.disco" MetadataType="Disco" ID="094c8df9-4f78-4392-83ec-75093deab178" SourceId="1" SourceUrl="http://localhost:55297/ShipperService.svc?disco" />
-    <MetadataFile FileName="ShipperService.wsdl" MetadataType="Wsdl" ID="09575ace-d70b-4ca3-81da-950bb230d0e8" SourceId="1" SourceUrl="http://localhost:55297/ShipperService.svc?wsdl" />
-    <MetadataFile FileName="ShipperService1.wsdl" MetadataType="Wsdl" ID="49ef1d71-8125-4c59-b1c8-a813c536c119" SourceId="1" SourceUrl="http://localhost:55297/ShipperService.svc?wsdl=wsdl0" />
-    <MetadataFile FileName="ShipperService.xsd" MetadataType="Schema" ID="8525bdc3-cb9c-49ea-8bb7-17dd00d58013" SourceId="1" SourceUrl="http://localhost:55297/ShipperService.svc?xsd=xsd2" />
-    <MetadataFile FileName="ShipperService1.xsd" MetadataType="Schema" ID="e48afa86-77ce-418a-9bfb-ba193fd5a1a7" SourceId="1" SourceUrl="http://localhost:55297/ShipperService.svc?xsd=xsd0" />
-    <MetadataFile FileName="ShipperService2.xsd" MetadataType="Schema" ID="f23fdaf0-b78e-4dda-9708-8dcc62d48cfb" SourceId="1" SourceUrl="http://localhost:55297/ShipperService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ShipperService.disco" MetadataType="Disco" ID="8ee018fa-6260-4caa-afa6-1483f88b334f" SourceId="1" SourceUrl="http://localhost:55297/ShipperService.svc?disco" />
+    <MetadataFile FileName="ShipperService.wsdl" MetadataType="Wsdl" ID="c7d12f48-de13-4e14-ba14-0aa8dc5c84b8" SourceId="1" SourceUrl="http://localhost:55297/ShipperService.svc?wsdl" />
+    <MetadataFile FileName="ShipperService1.wsdl" MetadataType="Wsdl" ID="bba8e7c1-782c-4d3c-8b90-8f9263346d18" SourceId="1" SourceUrl="http://localhost:55297/ShipperService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ShipperService.xsd" MetadataType="Schema" ID="6517836a-0fa6-4095-85fa-20716b3a5517" SourceId="1" SourceUrl="http://localhost:55297/ShipperService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ShipperService1.xsd" MetadataType="Schema" ID="f43ac13c-fbe7-41e8-904b-07abc081de22" SourceId="1" SourceUrl="http://localhost:55297/ShipperService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ShipperService2.xsd" MetadataType="Schema" ID="1c080d49-4925-4df4-8d9f-79541f987a54" SourceId="1" SourceUrl="http://localhost:55297/ShipperService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

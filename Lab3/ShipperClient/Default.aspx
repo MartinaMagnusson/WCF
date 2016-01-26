@@ -13,5 +13,5 @@
     <p>Shipper Phone</p>
     <asp:TextBox ID="TextBoxShipperPhone" runat="server"></asp:TextBox>
     <br />
-    <asp:Button ID="ButtonSave" runat="server" Text="Save" />
+    <asp:Button ID="ButtonSave" runat="server" Text="Save" OnClick="ButtonSave_Click" />
 </asp:Content>

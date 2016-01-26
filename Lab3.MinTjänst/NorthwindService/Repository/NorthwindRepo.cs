@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 
 namespace NorthwindService.Repository
-{   
+{
     public class NorthwindRepo
     {
         private readonly string connectionString = "Data Source=Martina;Initial Catalog=NORTHWND;Integrated Security=True";
@@ -37,6 +37,43 @@ namespace NorthwindService.Repository
                     Console.WriteLine(ex.Message);
                 }
                 return employee;
+            }
+        }
+
+        internal void EditEmployee(Employees employee)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                var command = connection.CreateCommand();
+                try
+                {
+                    command.Parameters.AddWithValue("@LastName", employee.LastName);
+                    command.Parameters.AddWithValue("@FirstName", employee.FirstName);
+                    command.Parameters.AddWithValue("@Title", employee.Title);
+                    command.Parameters.AddWithValue("@TitleOfCourtesy", employee.TitleOfCourtesy);
+                    command.Parameters.AddWithValue("@BirthDate", employee.BirthDate);
+                    command.Parameters.AddWithValue("@HireDate", employee.HireDate);
+                    command.Parameters.AddWithValue("@Address", employee.Address);
+                    command.Parameters.AddWithValue("@City", employee.Address);
+                    command.Parameters.AddWithValue("@ID", employee.ID);
+
+                    command.CommandText = @"UPDATE [dbo].[Employees]
+                                              SET [LastName] = @LastName
+                                                 ,[FirstName] = @FirstName
+                                                 ,[Title] = @Title
+                                                 ,[TitleOfCourtesy] = @TitleOfCourtesy
+                                                 ,[BirthDate] = @BirthDate
+                                                 ,[HireDate] = @HireDate
+                                                 ,[Address] = @Address
+                                                 ,[City] = @City
+                                            WHERE [EmployeeID] = @ID";
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
     }

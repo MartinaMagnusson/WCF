@@ -15,7 +15,7 @@ namespace NorthwindService
         private NorthwindRepo repo = new NorthwindRepo();
         public void EditEmployee(Employees employee)
         {
-            throw new NotImplementedException();
+            repo.EditEmployee(employee);
         }
 
         public Employees GetEmployee(int ID)

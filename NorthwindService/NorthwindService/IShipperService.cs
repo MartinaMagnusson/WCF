@@ -8,7 +8,7 @@ using System.Text;
 namespace NorthwindService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IShipperService" in both code and config file together.
-    [ServiceContract]
+    [ServiceContract(Namespace = "http://ShipperService")]
     public interface IShipperService
     {
         [OperationContract]

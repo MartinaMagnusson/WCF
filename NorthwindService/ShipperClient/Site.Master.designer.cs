@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NorthwindService {
+namespace ShipperClient {
     
     
     public partial class SiteMaster {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -8,7 +9,7 @@ namespace NorthwindService.Repository
 {
     public class NorthwindRepo
     {
-        private readonly string connectionString = "Data Source=Martina;Initial Catalog=NORTHWND;Integrated Security=True";
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["theDB"].ToString();
         internal Employees GetEmployee(string queryString, Employees employee)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

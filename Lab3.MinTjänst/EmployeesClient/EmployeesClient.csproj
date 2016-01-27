@@ -79,17 +79,63 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Index.aspx" />
+    <Content Include="Service References\NwService\EmployeesClient.NwService.Employees.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\NwService\EmployeesService.disco" />
+    <None Include="Service References\NwService\configuration91.svcinfo" />
+    <None Include="Service References\NwService\configuration.svcinfo" />
+    <None Include="Service References\NwService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
+    <None Include="Service References\NwService\EmployeesService.wsdl" />
+    <None Include="Service References\NwService\EmployeesService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NwService\EmployeesService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NwService\EmployeesService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeneratedProxy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\NwService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\NwService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NorthwindService\NorthwindService.csproj">
+      <Project>{c94671b7-aebc-4181-81d1-6fe842dd5f6b}</Project>
+      <Name>NorthwindService</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

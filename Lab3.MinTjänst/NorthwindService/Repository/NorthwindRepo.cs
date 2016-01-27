@@ -21,8 +21,8 @@ namespace NorthwindService.Repository
                     while (reader.Read())
                     {
                         employee.ID = int.Parse(reader[0].ToString());
-                        employee.FirstName = reader[1].ToString();
-                        employee.LastName = reader[2].ToString();
+                        employee.LastName = reader[1].ToString();
+                        employee.FirstName = reader[2].ToString();                    
                         employee.Title = reader[3].ToString();
                         employee.TitleOfCourtesy = reader[4].ToString();
                         employee.BirthDate = DateTime.Parse(reader[5].ToString());
@@ -54,7 +54,7 @@ namespace NorthwindService.Repository
                     command.Parameters.AddWithValue("@BirthDate", employee.BirthDate);
                     command.Parameters.AddWithValue("@HireDate", employee.HireDate);
                     command.Parameters.AddWithValue("@Address", employee.Address);
-                    command.Parameters.AddWithValue("@City", employee.Address);
+                    command.Parameters.AddWithValue("@City", employee.City);
                     command.Parameters.AddWithValue("@ID", employee.ID);
 
                     command.CommandText = @"UPDATE [dbo].[Employees]

@@ -19,12 +19,27 @@ namespace NorthwindService
                                    FROM[NORTHWND].[dbo].[Shippers] 
                                    WHERE[ShipperID] = " + ID;
             var shipper = new Shipper();
+            try
+            {
+                return repo.GetShipper(queryString, shipper);
+            }
+            catch (Exception ex)
+            {
 
-            return repo.GetShipper(queryString, shipper);
+                throw ex;
+            }
         }
         public void SaveShipper(Shipper shipper)
         {
-            repo.SaveShopper(shipper);
+            try
+            {
+                repo.SaveShopper(shipper);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+ 
         }
     }
 }

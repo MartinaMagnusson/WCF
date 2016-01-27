@@ -15,7 +15,15 @@ namespace NorthwindService
         private NorthwindRepo repo = new NorthwindRepo();
         public void EditEmployee(Employees employee)
         {
-            repo.EditEmployee(employee);
+            try
+            {
+                repo.EditEmployee(employee);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public Employees GetEmployee(int ID)
@@ -32,7 +40,16 @@ namespace NorthwindService
                                  FROM [NORTHWND].[dbo].[Employees]
                                  WHERE [EmployeeID] = " + ID;
             var employee = new Employees();
-            return repo.GetEmployee(queryString, employee);
+            try
+            {
+                return repo.GetEmployee(queryString, employee);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
     }
 }

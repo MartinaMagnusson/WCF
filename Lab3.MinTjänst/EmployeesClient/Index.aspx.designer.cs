@@ -22,13 +22,13 @@ namespace EmployeesClient {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// LabelGet control.
+        /// Label10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelGet;
+        protected global::System.Web.UI.WebControls.Label Label10;
         
         /// <summary>
         /// TextBoxID control.
@@ -49,13 +49,13 @@ namespace EmployeesClient {
         protected global::System.Web.UI.WebControls.Button ButtonGet;
         
         /// <summary>
-        /// LabelEdit control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelEdit;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// TextBoxEmployeeID control.
@@ -67,6 +67,15 @@ namespace EmployeesClient {
         protected global::System.Web.UI.WebControls.TextBox TextBoxEmployeeID;
         
         /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
         /// TextBoxFirstName control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace EmployeesClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxFirstName;
+        
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
         /// TextBoxLastName control.
@@ -85,6 +103,15 @@ namespace EmployeesClient {
         protected global::System.Web.UI.WebControls.TextBox TextBoxLastName;
         
         /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
         /// TextBoxTitle control.
         /// </summary>
         /// <remarks>
@@ -92,6 +119,15 @@ namespace EmployeesClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxTitle;
+        
+        /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
         /// TextBoxTitleOfCourtesy control.
@@ -103,6 +139,15 @@ namespace EmployeesClient {
         protected global::System.Web.UI.WebControls.TextBox TextBoxTitleOfCourtesy;
         
         /// <summary>
+        /// Label6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+        
+        /// <summary>
         /// TextBoxBirthDate control.
         /// </summary>
         /// <remarks>
@@ -110,6 +155,15 @@ namespace EmployeesClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxBirthDate;
+        
+        /// <summary>
+        /// Label7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
         /// TextBoxHireDate control.
@@ -121,6 +175,15 @@ namespace EmployeesClient {
         protected global::System.Web.UI.WebControls.TextBox TextBoxHireDate;
         
         /// <summary>
+        /// Label8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
+        
+        /// <summary>
         /// TextBoxAddress control.
         /// </summary>
         /// <remarks>
@@ -128,6 +191,15 @@ namespace EmployeesClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxAddress;
+        
+        /// <summary>
+        /// Label9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
         /// TextBoxCity control.

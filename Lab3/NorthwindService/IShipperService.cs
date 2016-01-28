@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -12,8 +13,12 @@ namespace NorthwindService
     public interface IShipperService
     {
         [OperationContract]
+        [FaultContract(typeof(ApplicationException))]
+        [FaultContract(typeof(SqlException))]
         Shipper GetShipper(string ID);
         [OperationContract]
+        [FaultContract(typeof(ApplicationException))]
+        [FaultContract(typeof(SqlException))]
         void SaveShipper(Shipper shipper);
     }
     [DataContract]

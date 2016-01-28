@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.ServiceModel;
 using NorthwindService;
+using System.Data.SqlClient;
 
 namespace ShipperClient
 {
@@ -19,25 +20,46 @@ namespace ShipperClient
         protected void ButtonGet_Click(object sender, EventArgs e)
         {
             var service = new ShipperServiceClient();
-            var id = int.Parse(TextBoxID.Text);
-            if (id >= 1 || id <= 3)
+            try
             {
-                var shipper = service.GetShipper(id.ToString());
-                TextBoxShipperID.Text = shipper.ID;
-                TextBoxShipperName.Text = shipper.CompanyName;
-                TextBoxShipperPhone.Text = shipper.Phone;
+                var id = int.Parse(TextBoxID.Text);
+                if (id >= 1 || id <= 3)
+                {
+                    var shipper = service.GetShipper(id.ToString());
+                    TextBoxShipperID.Text = shipper.ID;
+                    TextBoxShipperName.Text = shipper.CompanyName;
+                    TextBoxShipperPhone.Text = shipper.Phone;
+                }
             }
-
+            catch (FaultException<SqlException> ex)
+            {
+                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<Exception>(ex);
+            }
         }
 
         protected void ButtonSave_Click(object sender, EventArgs e)
         {
             var service = new ShipperServiceClient();
             var shipper = new Shipper();
-            shipper.ID = TextBoxID.Text;
-            shipper.CompanyName = TextBoxShipperName.Text;
-            shipper.Phone = TextBoxShipperPhone.Text;
-            service.SaveShipper(shipper);
+            try
+            {
+                shipper.ID = TextBoxID.Text;
+                shipper.CompanyName = TextBoxShipperName.Text;
+                shipper.Phone = TextBoxShipperPhone.Text;
+                service.SaveShipper(shipper);
+            }
+            catch (FaultException<SqlException> ex)
+            {
+                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<Exception>(ex);
+            }
         }
     }
 }

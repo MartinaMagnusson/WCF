@@ -23,7 +23,11 @@ namespace NorthwindService
             }
             catch (FaultException<SqlException> ex)
             {
-                throw ex.Detail;
+                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<Exception>(ex);
             }
         }
 
@@ -47,7 +51,11 @@ namespace NorthwindService
             }
             catch (FaultException<SqlException> ex)
             {
-                throw ex.Detail;
+                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException<Exception>(ex);
             }
         }
     }

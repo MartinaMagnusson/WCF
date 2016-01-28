@@ -39,7 +39,7 @@ namespace EmployeesClient
             }
             catch (FaultException<SqlException> ex)
             {
-                throw ex.Detail;
+                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
             }
             catch (Exception ex)
             {
@@ -67,7 +67,7 @@ namespace EmployeesClient
             }
             catch (FaultException<SqlException> ex)
             {
-                throw ex.Detail;
+                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
             }
             catch (Exception ex)
             {

@@ -10,6 +10,7 @@ namespace NorthwindService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "EmployeesService" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select EmployeesService.svc or EmployeesService.svc.cs at the Solution Explorer and start debugging.
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class EmployeesService : IEmployeesService
     {
         private NorthwindRepo repo = new NorthwindRepo();
@@ -19,7 +20,7 @@ namespace NorthwindService
             {
                 repo.EditEmployee(employee);
             }
-            catch (Exception ex)
+            catch (FaultException ex)
             {
 
                 throw ex;
@@ -44,7 +45,7 @@ namespace NorthwindService
             {
                 return repo.GetEmployee(queryString, employee);
             }
-            catch (Exception ex)
+            catch (FaultException ex)
             {
 
                 throw ex;

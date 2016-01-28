@@ -1,7 +1,9 @@
 ﻿using NorthwindService;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -35,9 +37,13 @@ namespace EmployeesClient
                     TextBoxCity.Text = employee.City;
                 }
             }
+            catch (FaultException<SqlException> ex)
+            {
+                throw ex.Detail;
+            }
             catch (Exception ex)
             {
-                throw ex;
+                throw new FaultException<Exception>(ex);
             }
 
         }
@@ -59,9 +65,13 @@ namespace EmployeesClient
                 employee.City = TextBoxCity.Text;
                 service.EditEmployee(employee);
             }
+            catch (FaultException<SqlException> ex)
+            {
+                throw ex.Detail;
+            }
             catch (Exception ex)
             {
-                throw ex;
+                throw new FaultException<Exception>(ex);
             }
         }
     }

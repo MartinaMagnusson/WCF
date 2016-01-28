@@ -1,6 +1,7 @@
 ﻿using NorthwindService.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -20,10 +21,9 @@ namespace NorthwindService
             {
                 repo.EditEmployee(employee);
             }
-            catch (FaultException ex)
+            catch (FaultException<SqlException> ex)
             {
-
-                throw ex;
+                throw ex.Detail;
             }
         }
 
@@ -45,12 +45,10 @@ namespace NorthwindService
             {
                 return repo.GetEmployee(queryString, employee);
             }
-            catch (FaultException ex)
+            catch (FaultException<SqlException> ex)
             {
-
-                throw ex;
+                throw ex.Detail;
             }
-
         }
     }
 }

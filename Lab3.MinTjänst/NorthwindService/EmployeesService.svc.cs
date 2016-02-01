@@ -21,13 +21,9 @@ namespace NorthwindService
             {
                 repo.EditEmployee(employee);
             }
-            catch (FaultException<SqlException> ex)
-            {
-                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
-            }
             catch (Exception ex)
             {
-                throw new FaultException<Exception>(ex);
+                throw new FaultException(ex.Message);
             }
         }
 
@@ -49,13 +45,9 @@ namespace NorthwindService
             {
                 return repo.GetEmployee(queryString, employee);
             }
-            catch (FaultException<SqlException> ex)
-            {
-                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
-            }
             catch (Exception ex)
             {
-                throw new FaultException<Exception>(ex);
+                throw new FaultException(ex.Message);
             }
         }
     }

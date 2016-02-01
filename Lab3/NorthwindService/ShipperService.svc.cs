@@ -25,13 +25,9 @@ namespace NorthwindService
             {
                 return repo.GetShipper(queryString, shipper);
             }
-            catch (FaultException<SqlException> ex)
-            {
-                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
-            }
             catch (Exception ex)
             {
-                throw new FaultException<Exception>(ex);
+                throw new FaultException(ex.Message);
             }
         }
         public void SaveShipper(Shipper shipper)
@@ -40,13 +36,9 @@ namespace NorthwindService
             {
                 repo.SaveShopper(shipper);
             }
-            catch (FaultException<SqlException> ex)
-            {
-                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
-            }
             catch (Exception ex)
             {
-                throw new FaultException<Exception>(ex);
+                throw new FaultException(ex.Message);
             }
         }
     }

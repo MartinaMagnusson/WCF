@@ -43,7 +43,7 @@ namespace EmployeesClient
             }
             catch (Exception ex)
             {
-                throw new FaultException<Exception>(ex);
+                throw new Exception("Client error: " + ex.Message);
             }
 
         }
@@ -71,7 +71,7 @@ namespace EmployeesClient
             }
             catch (Exception ex)
             {
-                throw new FaultException<Exception>(ex);
+                throw new Exception("Client error: " + ex.Message);
             }
         }
     }

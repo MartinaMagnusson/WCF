@@ -16,22 +16,16 @@ namespace NorthwindService.Repository
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 var command = new SqlCommand(queryString, connection);
-                try
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    connection.Open();
-                    var reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        shipper.ID = reader[0].ToString();
-                        shipper.CompanyName = reader[1].ToString();
-                        shipper.Phone = reader[2].ToString();
-                    }
-                    reader.Close();
+                    shipper.ID = reader[0].ToString();
+                    shipper.CompanyName = reader[1].ToString();
+                    shipper.Phone = reader[2].ToString();
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                reader.Close();
+
                 return shipper;
             }
         }
@@ -40,23 +34,16 @@ namespace NorthwindService.Repository
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 var command = connection.CreateCommand();
-                try
-                {
-                    command.Parameters.AddWithValue("@CompanyName", shipper.CompanyName);
-                    command.Parameters.AddWithValue("@Phone", shipper.Phone);
-                    command.Parameters.AddWithValue("@ID", shipper.ID);
+                command.Parameters.AddWithValue("@CompanyName", shipper.CompanyName);
+                command.Parameters.AddWithValue("@Phone", shipper.Phone);
+                command.Parameters.AddWithValue("@ID", shipper.ID);
 
-                    command.CommandText = @"UPDATE [dbo].[Shippers]
+                command.CommandText = @"UPDATE [dbo].[Shippers]
                                         SET [CompanyName] = @CompanyName ,
                                         [Phone] = @Phone
                                         WHERE [ShipperID] = @ID";
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                connection.Open();
+                command.ExecuteNonQuery();
             }
         }
     }

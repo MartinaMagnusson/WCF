@@ -15,28 +15,21 @@ namespace NorthwindService.Repository
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 var command = new SqlCommand(queryString, connection);
-                try
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
                 {
-                    connection.Open();
-                    var reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        employee.ID = int.Parse(reader[0].ToString());
-                        employee.LastName = reader[1].ToString();
-                        employee.FirstName = reader[2].ToString();                    
-                        employee.Title = reader[3].ToString();
-                        employee.TitleOfCourtesy = reader[4].ToString();
-                        employee.BirthDate = DateTime.Parse(reader[5].ToString());
-                        employee.HireDate = DateTime.Parse(reader[6].ToString());
-                        employee.Address = reader[7].ToString();
-                        employee.City = reader[8].ToString();
-                    }
-                    reader.Close();
+                    employee.ID = int.Parse(reader[0].ToString());
+                    employee.LastName = reader[1].ToString();
+                    employee.FirstName = reader[2].ToString();
+                    employee.Title = reader[3].ToString();
+                    employee.TitleOfCourtesy = reader[4].ToString();
+                    employee.BirthDate = DateTime.Parse(reader[5].ToString());
+                    employee.HireDate = DateTime.Parse(reader[6].ToString());
+                    employee.Address = reader[7].ToString();
+                    employee.City = reader[8].ToString();
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                reader.Close();
                 return employee;
             }
         }
@@ -46,19 +39,17 @@ namespace NorthwindService.Repository
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 var command = connection.CreateCommand();
-                try
-                {
-                    command.Parameters.AddWithValue("@LastName", employee.LastName);
-                    command.Parameters.AddWithValue("@FirstName", employee.FirstName);
-                    command.Parameters.AddWithValue("@Title", employee.Title);
-                    command.Parameters.AddWithValue("@TitleOfCourtesy", employee.TitleOfCourtesy);
-                    command.Parameters.AddWithValue("@BirthDate", employee.BirthDate);
-                    command.Parameters.AddWithValue("@HireDate", employee.HireDate);
-                    command.Parameters.AddWithValue("@Address", employee.Address);
-                    command.Parameters.AddWithValue("@City", employee.City);
-                    command.Parameters.AddWithValue("@ID", employee.ID);
+                command.Parameters.AddWithValue("@LastName", employee.LastName);
+                command.Parameters.AddWithValue("@FirstName", employee.FirstName);
+                command.Parameters.AddWithValue("@Title", employee.Title);
+                command.Parameters.AddWithValue("@TitleOfCourtesy", employee.TitleOfCourtesy);
+                command.Parameters.AddWithValue("@BirthDate", employee.BirthDate);
+                command.Parameters.AddWithValue("@HireDate", employee.HireDate);
+                command.Parameters.AddWithValue("@Address", employee.Address);
+                command.Parameters.AddWithValue("@City", employee.City);
+                command.Parameters.AddWithValue("@ID", employee.ID);
 
-                    command.CommandText = @"UPDATE [dbo].[Employees]
+                command.CommandText = @"UPDATE [dbo].[Employees]
                                               SET [LastName] = @LastName
                                                  ,[FirstName] = @FirstName
                                                  ,[Title] = @Title
@@ -68,13 +59,8 @@ namespace NorthwindService.Repository
                                                  ,[Address] = @Address
                                                  ,[City] = @City
                                             WHERE [EmployeeID] = @ID";
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                connection.Open();
+                command.ExecuteNonQuery();
             }
         }
     }

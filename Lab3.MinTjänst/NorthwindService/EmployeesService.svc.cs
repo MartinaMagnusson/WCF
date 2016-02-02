@@ -40,10 +40,12 @@ namespace NorthwindService
                                      ,[City]
                                  FROM [NORTHWND].[dbo].[Employees]
                                  WHERE [EmployeeID] = " + ID;
-            var employee = new Employees();
             try
             {
-                return repo.GetEmployee(queryString, employee);
+                var employee = repo.GetEmployee(queryString, new Employees());
+                if(employee.ID == 0)
+                    throw new FaultException("Something went wrong");
+                return employee;
             }
             catch (Exception ex)
             {

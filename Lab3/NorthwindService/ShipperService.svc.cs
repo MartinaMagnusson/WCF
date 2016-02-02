@@ -20,10 +20,12 @@ namespace NorthwindService
             string queryString = @"SELECT [ShipperID],[CompanyName],[Phone] 
                                    FROM[NORTHWND].[dbo].[Shippers] 
                                    WHERE[ShipperID] = " + ID;
-            var shipper = new Shipper();
             try
             {
-                return repo.GetShipper(queryString, shipper);
+                var shipper = repo.GetShipper(queryString, new Shipper());
+                if(shipper.ID == null)
+                    throw new FaultException("Something went wrong");
+                return shipper;
             }
             catch (Exception ex)
             {

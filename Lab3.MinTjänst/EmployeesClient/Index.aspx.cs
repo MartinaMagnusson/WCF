@@ -37,13 +37,13 @@ namespace EmployeesClient
                     TextBoxCity.Text = employee.City;
                 }
             }
-            catch (FaultException<SqlException> ex)
+            catch (FaultException ex)
             {
-                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
+                Label10.Text = "Service error: Something went wrong" + ex.Message;
             }
             catch (Exception ex)
             {
-                throw new Exception("Client error: " + ex.Message);
+                Label10.Text = "Client error: Something went wrong" + ex.Message;
             }
 
         }

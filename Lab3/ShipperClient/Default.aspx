@@ -5,7 +5,7 @@
     <asp:TextBox ID="TextBoxID" runat="server" TextMode="Number"></asp:TextBox>
     <br />
     <asp:Button ID="ButtonGet" runat="server" Text="Get Shipper" OnClick="ButtonGet_Click" />
-    <p>Edit shipper data</p>
+    <asp:Label ID="Label1" runat="server" Text="Edit shipper data"></asp:Label>
     <p>Shipper ID</p>
     <asp:TextBox ID="TextBoxShipperID" runat="server"></asp:TextBox>
     <p>Shipper Name</p>

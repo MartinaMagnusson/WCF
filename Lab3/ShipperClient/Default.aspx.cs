@@ -31,13 +31,13 @@ namespace ShipperClient
                     TextBoxShipperPhone.Text = shipper.Phone;
                 }
             }
-            catch (FaultException<SqlException> ex)
+            catch (FaultException ex)
             {
-                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
+                Label1.Text = "Service error: Something went wrong" + ex.Message;
             }
             catch (Exception ex)
             {
-                throw new Exception("Client error: " + ex.Message);
+                Label1.Text = "Client error: Something went wrong" + ex.Message;
             }
         }
 
@@ -52,13 +52,13 @@ namespace ShipperClient
                 shipper.Phone = TextBoxShipperPhone.Text;
                 service.SaveShipper(shipper);
             }
-            catch (FaultException<SqlException> ex)
+            catch (FaultException ex)
             {
-                throw new FaultException<SqlException>(ex.Detail, "Something went wrong");
+                Label1.Text = "Service error: Something went wrong" + ex.Message;
             }
             catch (Exception ex)
             {
-                throw new Exception("Client error: " + ex.Message);
+                Label1.Text = "Client error: Something went wrong" + ex.Message;
             }
         }
     }
